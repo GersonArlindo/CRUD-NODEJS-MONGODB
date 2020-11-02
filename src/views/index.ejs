@@ -1,0 +1,84 @@
+<%- include('partials/_header.ejs')%>
+
+<div class="container">
+
+  <div class="row">
+
+    <!--FORM-->
+    <div class="col-md-8 offset-md-2">
+      <legend class="text-center header">AGREGAR UNA CASA.</legend>
+      <div class="card">
+        <div class="card-body">
+          <form action="/add" method="post">
+            <div class="form-group">
+              <input class="form-control" type="text" name="title" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="description" cols="80"
+                placeholder="Agregar una  Descripcion"
+                ></textarea>
+            </div>
+            <button class="btn btn-dark btn-block" type="submit" >
+              Agregar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br>
+  <hr class="bg-danger text-white">
+  <br>
+
+  <div class="container mt-5">
+    <h3>Buscar Producto</h3>
+
+  </div>
+
+
+  <div class="row">
+    <!-- LIST -->
+    <div class="col-md-12 ">
+      <table class="table table-striped ">
+        <thead class="thead-dark">
+          <tr>
+            <th>N°</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Operacion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0; i < houses.length; i++) { %> <!--Bucle javascript para recorrer arreglo-->
+            <tr> <!--Fila nueva-->
+              <td><%= i + 1%></td> 
+              <td><strong><%= houses[i].title %></strong></td>
+              <td><%= houses[i].description %></td>
+              <td>
+                <!--Botones de las Operaciones Borrar, editar y estado-->
+                <a   
+                  class="<%= houses[i].status ? 'btn btn-success' : 'btn btn-dark'%>" 
+                  href="/turn/<%= houses[i]._id %>">Vendido</a>
+                  <br><br>
+                <a href="/delete/<%= houses[i]._id %>" 
+                  class="btn btn-danger">
+                  -Borrar-
+                </a>
+                <br><br>
+                <a href="/edit/<%= houses[i]._id %>" class="btn btn-info">
+                  -Editar-
+                </a>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+</div>
+<%- include('partials/_footer.ejs')%>
+
+

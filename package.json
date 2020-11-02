@@ -1,0 +1,27 @@
+{
+  "name": "mongodb-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "assert": "^2.0.0",
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.10",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js"
+  },
+  "keywords": [],
+  "author": "Gerson",
+  "license": "ISC",
+  "directories": {
+    "doc": "docs"
+  }
+}
